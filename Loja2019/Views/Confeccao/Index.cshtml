@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Loja2019.Models.Confeccao>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Confeccao</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Roupa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Roupa.RoupaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ConfeccaoId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ConfeccaoId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ConfeccaoId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
